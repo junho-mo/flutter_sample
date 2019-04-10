@@ -79,24 +79,24 @@ class _ProductScreenTopPartState extends State<ProductScreenTopPart> {
   Widget build(BuildContext context) {
     return new Container(
       width: double.infinity,
-      height: screenAwareSize(245.0, context),
+      height: screenAwareSize(225.0, context),    // body 화면전체높이
       child: Stack(
         children: <Widget>[
           Stack(
             children: <Widget>[
               Container(
-                child: Image.asset("assets/adidas.png",     // 제품이미지
+                child: Image.asset("assets/omega.png",     // 제품이미지
                     width: double.infinity,
                     height: double.infinity,
-                    fit: BoxFit.cover),
+                    fit: BoxFit.scaleDown),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 60.0, right: 35.0),
                 child: Align(
                   alignment: Alignment.topRight,
                   child: Container(
-                    width: screenAwareSize(50.0, context),
-                    height: screenAwareSize(50.0, context),
+                    width: screenAwareSize(40.0, context),
+                    height: screenAwareSize(40.0, context),
                     decoration: BoxDecoration(
                         color: Colors.black26, shape: BoxShape.circle),
                     child: Image.asset("assets/360.png"),   // 회전버튼
@@ -105,7 +105,7 @@ class _ProductScreenTopPartState extends State<ProductScreenTopPart> {
               )
             ],
           ),
-          Positioned(
+          Positioned(                                 // Rating
             left: screenAwareSize(18.0, context),
             bottom: screenAwareSize(15.0, context),
             child: Column(
@@ -128,11 +128,11 @@ class _ProductScreenTopPartState extends State<ProductScreenTopPart> {
                     SizedBox(
                       width: screenAwareSize(5.0, context),
                     ),
-                    Text("4.5", style: TextStyle(color: Color(0xFFFFE600))),
+                    Text("4.8", style: TextStyle(color: Color(0xFFFFE600))),
                     SizedBox(
                       width: screenAwareSize(5.0, context),
                     ),
-                    Text("(378 People)",
+                    Text("(78 People)",
                         style: TextStyle(color: Colors.white, fontSize: 14.0))
                   ],
                 )
