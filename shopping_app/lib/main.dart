@@ -85,27 +85,28 @@ class _ProductScreenTopPartState extends State<ProductScreenTopPart> {
           Stack(
             children: <Widget>[
               Container(
+                // padding: const EdgeInsets.only(top: 10.0, right: 55.0), // 위치
                 child: Image.asset("assets/omega.png",     // 제품이미지
                     width: double.infinity,
                     height: double.infinity,
                     fit: BoxFit.scaleDown),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 60.0, right: 35.0),
+                padding: const EdgeInsets.only(top: 100.0, right: 55.0), // 위치
                 child: Align(
                   alignment: Alignment.topRight,
-                  child: Container(
-                    width: screenAwareSize(40.0, context),
-                    height: screenAwareSize(40.0, context),
+                  child: Container(                   // 검정색 원형 백그라운드 
+                    width: screenAwareSize(50.0, context),
+                    height: screenAwareSize(50.0, context),
                     decoration: BoxDecoration(
                         color: Colors.black26, shape: BoxShape.circle),
-                    child: Image.asset("assets/360.png"),   // 회전버튼
+                    child: Image.asset("assets/360.png",),   // 회전버튼
                   ),
                 ),
               )
             ],
           ),
-          Positioned(                                 // Rating
+          Positioned(                                 // Rating display setting
             left: screenAwareSize(18.0, context),
             bottom: screenAwareSize(15.0, context),
             child: Column(
@@ -155,16 +156,24 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
   bool isExpanded = false;
   int currentSizeIndex = 0;
   int currentColorIndex = 0;
-  int _counter = 0;
+  int _counter = 1;
 
   void _increase() {
     setState(() {
+      if (_counter > 3) {
+        _showMessageDialog(context, 'You can not puchased any more.');
+        return;
+      }
       _counter++;
     });
   }
 
   void _decrease() {
     setState(() {
+      if (_counter < 1) {
+        _showMessageDialog(context, 'You can not puchased under zero.');
+        return;
+      }
       _counter--;
     });
   }
@@ -282,7 +291,7 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
                   height: screenAwareSize(38.0, context),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: sizeNumlist.map((item) {
+                    children: sizeNumlist.map((item) {        // data.dart 변수 sizeNumlist 루프
                       var index = sizeNumlist.indexOf(item);
                       return GestureDetector(
                         onTap: () {
@@ -416,7 +425,7 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
                                     fontSize: screenAwareSize(26.0, context),
                                     fontFamily: "Montserrat-Medium")),
                             SizedBox(width: screenAwareSize(2.0, context)),
-                            Text("80",
+                            Text((_counter * 85).toString(),
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: screenAwareSize(35.0, context),
@@ -434,7 +443,7 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
                           padding: EdgeInsets.symmetric(
                             vertical: screenAwareSize(14.0, context),
                           ),
-                          onPressed: () {},
+                          onPressed: () => _showMessageDialog(context, 'buy!'),
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: Padding(
