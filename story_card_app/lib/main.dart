@@ -70,7 +70,7 @@ class _MyAppState extends State<MyApp> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text("Trending",
+                    Text("Frameworks",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 46.0,
@@ -101,20 +101,20 @@ class _MyAppState extends State<MyApp> {
                         child: Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal: 22.0, vertical: 6.0),
-                            child: Text("Animated",
+                            child: Text("Lunched",
                               style: TextStyle(color: Colors.white)),
                         ),
                       ),
                     ),
                     SizedBox(width: 15.0,),
-                    Text("25+ Storeis",
+                    Text("25+ Companies",
                       style: TextStyle(color: Colors.blueAccent,))
                   ],
                 ),
               ),
               Stack(
                 children: <Widget>[
-                  CardScrollWidget(currentPage),
+                  CardScrollWidget(currentPage),    // cardScroll.dart 
                   Positioned.fill(
                     child: PageView.builder(
                       itemCount: images.length,

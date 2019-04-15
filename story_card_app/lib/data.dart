@@ -6,8 +6,8 @@ List<String> images = [
 ];
 
 List<String> title = [
-  "Hounted Ground",
-  "Fallen In Love",
-  "The Dreaming Moon",
-  "Jack the Persian and the Black Castel",
+  "System Integration",
+  "Windows App - wiseWA 1.0",
+  "Hybrid Native - wiseN 1.0",
+  "Hybrid WebApp - wiseW 1.0",
 ];
